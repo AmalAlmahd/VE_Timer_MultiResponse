@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     lazy var transition: SwiftyPresenter = {
         var swifty = SwiftyPresenter()
-        swifty.transition(from: .left, useDimmer: true, dismissWithDimmer: false, withContainerSizeof: .containerSize(width: 0.7, height: 1), framePositionAt: .framePos(width: 0.9, height: 1.0))
+        swifty.transition(from: .left, useDimmer: false, dismissWithDimmer: true, withContainerSizeof: .containerSize(width: 0.7, height: 1), framePositionAt: .framePos(width: 0.9, height: 1.0))
       //  swifty.transition(from: .left, useDimmer: true, withContainerSizeof: .containerSize(width: 0.5, height: 1), framePositionAt: .framePos(width: 0.9, height: 1))
      swifty.transition(withAnimationDurationOf: 0.7)
         //swifty.transition(withRoundCornersOn: [.topLeft,.topRight], cornerRadius: 10)
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

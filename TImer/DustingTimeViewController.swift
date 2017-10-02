@@ -29,6 +29,7 @@ class DustingTimeViewController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datasource = DustingTimeDatasource()
+        self.collectionView?.backgroundColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
     }
     
     

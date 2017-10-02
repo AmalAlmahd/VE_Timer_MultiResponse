@@ -30,21 +30,27 @@ class DustingTimerCell: DatasourceCell {
     // Set up primary timer section title
     let primarySectionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Emission Observation Timer"
+        let text = NSMutableAttributedString(string: "")
+        text.append(NSAttributedString(string: "Emission Observation Timer", attributes: [NSFontAttributeName: UIFont(name: "MarkerFelt-Wide", size: 30)!, NSForegroundColorAttributeName: UIColor.white]))
+        label.attributedText = text
+        //label.text = "Emission Observation Timer"
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
-        label.backgroundColor = .lightGray
+//        label.font = UIFont.systemFont(ofSize: 15)
+//        label.textColor = .black
+//        label.backgroundColor = .lightGray
         return label
     }()
     
     // Set up Primary Timer
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "06:00"
+        let text = NSMutableAttributedString(string: "")
+//        label.text = "06:00"
+        text.append(NSAttributedString(string: "06:00", attributes: [NSFontAttributeName: UIFont(name: "MarkerFelt-Wide", size: 60)!, NSForegroundColorAttributeName: UIColor.white]))
+        label.attributedText = text
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 57)
-        label.textColor = .black
+//        label.font = UIFont.systemFont(ofSize: 57)
+//        label.textColor = .black
         return label
     }()
     
@@ -123,9 +129,7 @@ class DustingTimerCell: DatasourceCell {
         super.setupViews()
         
         separatorLineView.isHidden = false
-        separatorLineView.backgroundColor = UIColor.black 
-        backgroundColor =  UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        
+        separatorLineView.backgroundColor = UIColor.black
         
         // Add subviews to cell
         addSubview(timeLabel)
@@ -138,7 +142,7 @@ class DustingTimerCell: DatasourceCell {
         
         // Clamp the subviews within the cell
         
-        primarySectionLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant:frame.width, heightConstant: 25)
+        primarySectionLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant:frame.width, heightConstant: 32)
         
         startButton.anchor(primarySectionLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 75, heightConstant: 50)
         
