@@ -24,10 +24,10 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
                 timer.invalidate()
                 timerOn = false
                 timerUp = true
-                if timerUp == true {
+                //if timerUp == true {
                 dismiss(animated: true, completion: nil)
-                }
-
+                print(timeString(time: TimeInterval(initialDustingTime)))
+                print(NSDate.self)
             }
             else {
                 initialTime -= 1
