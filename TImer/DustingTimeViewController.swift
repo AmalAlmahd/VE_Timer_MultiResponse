@@ -14,7 +14,7 @@ class DustingTimeViewController: DatasourceController {
     // initiate variables for timeLabel, timeframe, timer, timer status
     var timeLabel: UILabel?
     var dustingTimeLabel : UILabel?
-    var initialTime = 360
+    var initialTime = 10
     var initialDustingTime = 0
     var timer = Timer()
     var dustTimer = Timer()

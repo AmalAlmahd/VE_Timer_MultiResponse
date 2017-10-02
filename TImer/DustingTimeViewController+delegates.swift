@@ -40,10 +40,12 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
     func updateDustingTimer(){
         if let dustingTimeLabel = self.dustingTimeLabel{
             if initialTime == 0 {
+                timerUp = true
                 dustTimer.invalidate()
             } else {
                 initialDustingTime += 1
-                dustingTimeLabel.text=timeString(time: TimeInterval(initialDustingTime))
+                dustingTimeLabel.text = timeString(time: TimeInterval(initialDustingTime))
+                
             }
         }
         
@@ -69,6 +71,10 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             self.timeLabel = label
             timerPaused = false
             self.resetBtn = btn
+            self.resetBtn?.setTitle("Pause", for: .normal)
+            self.resetBtn?.layer.backgroundColor = UIColor.cyan.cgColor
+            self.resetBtn?.layer.borderColor = UIColor.cyan.cgColor
+            
         }
     }
     
@@ -82,6 +88,8 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             dustTimer.invalidate()
             dustingTimerOn = false
             self.resetBtn?.setTitle("Reset", for: .normal)
+            self.resetBtn?.layer.backgroundColor = UIColor.red.cgColor
+            self.resetBtn?.layer.borderColor = UIColor.red.cgColor
             self.dustBtn?.setTitle("Start", for: .normal)
             self.dustBtn?.layer.backgroundColor = UIColor.green.cgColor
             self.dustBtn?.layer.borderColor = UIColor.green.cgColor
@@ -94,12 +102,13 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             dustTimer.invalidate()
             initialDustingTime = 0
             
-            if timerUp == false {
+            if timerUp == false{
                     initialTime = 360
                     self.timeLabel?.text = "06:00"
                     self.dustingTimeLabel?.text = "00:00"
                     self.resetBtn?.setTitle("Pause", for: .normal)
                     self.resetBtn?.layer.backgroundColor = UIColor.cyan.cgColor
+                    self.resetBtn?.layer.borderColor = UIColor.cyan.cgColor
                     self.dustBtn?.setTitle("Start", for: .normal)
                     self.dustBtn?.layer.backgroundColor = UIColor.green.cgColor
                     self.dustBtn?.layer.borderColor = UIColor.green.cgColor

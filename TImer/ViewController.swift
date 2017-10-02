@@ -19,6 +19,11 @@ class ViewController: UIViewController {
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = transition
         present(controller, animated: true, completion: nil)
+        
+        UIFont.familyNames.forEach({ familyName in
+            let fontNames = UIFont.fontNames(forFamilyName: familyName)
+            print(fontNames)
+        })
     }
     lazy var transition: SwiftyPresenter = {
         var swifty = SwiftyPresenter()
@@ -28,6 +33,10 @@ class ViewController: UIViewController {
         //swifty.transition(withRoundCornersOn: [.topLeft,.topRight], cornerRadius: 10)
         return swifty
     }()
+    
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

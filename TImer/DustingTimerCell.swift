@@ -59,10 +59,10 @@ class DustingTimerCell: DatasourceCell {
     let dustingTimeSectionLabel: UILabel = {
         let label = UILabel()
         label.text = "Accumulated Dusting Time"
+        label.font = UIFont(name: "DevanagariSangamMN-Bold", size: 37)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .black
-        label.backgroundColor = .lightGray
+        label.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
         return label
     }()
     
@@ -70,9 +70,9 @@ class DustingTimerCell: DatasourceCell {
     // Set up Dusting Timer
     let dustingTimeLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "DevanagariSangamMN-Bold", size: 77)
         label.text = "00:00"
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 57)
         label.textColor = .black
         return label
     }()
@@ -85,8 +85,8 @@ class DustingTimerCell: DatasourceCell {
         button.layer.borderWidth = 1
         button.setTitle("Start", for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
-        button.setTitleColor (UIColor.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "DevanagariSangamMN-Bold", size: 17)
+        button.setTitleColor (UIColor.white, for: .normal)
         button.isUserInteractionEnabled = true
         button.isEnabled = true
         button.addTarget(self, action: #selector(handleStartButton), for: .touchUpInside)
@@ -101,8 +101,8 @@ class DustingTimerCell: DatasourceCell {
         button.layer.borderWidth = 1
         button.setTitle("Pause", for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
-        button.setTitleColor (UIColor.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "DevanagariSangamMN-Bold", size: 17)
+        button.setTitleColor (UIColor.white, for: .normal)
         button.isUserInteractionEnabled = true
         button.isEnabled = true
         button.addTarget (self, action: #selector(handleResetButton), for: .touchUpInside)
@@ -117,8 +117,8 @@ class DustingTimerCell: DatasourceCell {
         button.layer.borderWidth = 1
         button.setTitle("Start", for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
-        button.setTitleColor (UIColor.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "DevanagariSangamMN-Bold", size: 17)
+        button.setTitleColor (UIColor.white, for: .normal)
         button.isUserInteractionEnabled = true
         button.isEnabled = true
         button.addTarget(self, action: #selector(handleDustingTimeButton), for: .touchUpInside)
@@ -142,20 +142,21 @@ class DustingTimerCell: DatasourceCell {
         
         // Clamp the subviews within the cell
         
+
         primarySectionLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant:frame.width, heightConstant: 32)
         
         startButton.anchor(primarySectionLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 75, heightConstant: 50)
         
         resetButton.anchor(primarySectionLabel.bottomAnchor, left:nil, bottom: nil, right: self.rightAnchor, topConstant: 10, leftConstant: 0, bottomConstant: 0, rightConstant: 10, widthConstant: 75, heightConstant: 50)
         
-        dustingTimeSectionLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: frame.height/2, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant:frame.width, heightConstant: 25)
+        dustingTimeSectionLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: (frame.height-20)/2, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant:frame.width, heightConstant: 50)
         
         dustingTimeButton.anchor(dustingTimeSectionLabel.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 75, heightConstant: 50)
         
-        timeLabel.anchor(primarySectionLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 75, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 180, heightConstant: 50)
+        timeLabel.anchor(primarySectionLabel.topAnchor, left: nil, bottom: nil, right: nil, topConstant: frame.height/4.5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: frame.width, heightConstant: 100)
         timeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        dustingTimeLabel.anchor(dustingTimeSectionLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: nil, right: timeLabel.rightAnchor, topConstant: 75, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 180, heightConstant: 50)
+        dustingTimeLabel.anchor(dustingTimeSectionLabel.topAnchor, left: timeLabel.leftAnchor, bottom: nil, right: timeLabel.rightAnchor, topConstant: frame.height/4.5, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: frame.width, heightConstant: 100)
         dustingTimeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
