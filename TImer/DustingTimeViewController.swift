@@ -24,6 +24,7 @@ class DustingTimeViewController: DatasourceController {
     var timerPaused = false
     var resetBtn: UIButton?
     var dustBtn:UIButton?
+    var date = ""
    
     
     override func viewDidLoad() {
@@ -37,11 +38,8 @@ class DustingTimeViewController: DatasourceController {
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 50)
-//    }
     
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

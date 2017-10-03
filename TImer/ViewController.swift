@@ -14,33 +14,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var responseTxtView: UITextView!
     
+    
+    @IBOutlet weak var timeRecorded: UILabel!
+    
+    var receivedString: String = ""
+    
     @IBAction func buttonHandler(_ sender: Any) {
         let controller = DustingTimeViewController()
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = transition
         present(controller, animated: true, completion: nil)
         
-        UIFont.familyNames.forEach({ familyName in
-            let fontNames = UIFont.fontNames(forFamilyName: familyName)
-            print(fontNames)
-        })
+       // UIFont.familyNames.forEach({ familyName in
+           // let fontNames = UIFont.fontNames(forFamilyName: familyName)
+          //  print(fontNames)
+       // })
     }
-    lazy var transition: SwiftyPresenter = {
+        lazy var transition: SwiftyPresenter = {
         var swifty = SwiftyPresenter()
-        swifty.transition(from: .left, useDimmer: false, dismissWithDimmer: true, withContainerSizeof: .containerSize(width: 0.7, height: 1), framePositionAt: .framePos(width: 0.9, height: 1.0))
-      //  swifty.transition(from: .left, useDimmer: true, withContainerSizeof: .containerSize(width: 0.5, height: 1), framePositionAt: .framePos(width: 0.9, height: 1))
-     swifty.transition(withAnimationDurationOf: 0.7)
-        //swifty.transition(withRoundCornersOn: [.topLeft,.topRight], cornerRadius: 10)
+        swifty.transition(from: .left, useDimmer: true, dismissWithDimmer: false, withContainerSizeof: .containerSize(width: 0.7, height: 0.85), framePositionAt: .framePos(width: 0.9, height: 1.0))
+            swifty.transition(withAnimationDurationOf: 0.7)
+        
         return swifty
     }()
-    
-    
 
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timeRecorded.text = receivedString
+    
         // Do any additional setup after loading the view, typically from a nib.
     }
 
