@@ -179,7 +179,6 @@ class DustingTimerCell: DatasourceCell {
     }
     
     deinit {
-        print(Date().description)
         print("Farewell from Dusting Time Cell")
     }
 }

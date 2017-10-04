@@ -24,15 +24,18 @@ class DustingTimeViewController: DatasourceController {
     var timerPaused = false
     var resetBtn: UIButton?
     var dustBtn:UIButton?
-    var date = ""
-   
+    var date = "date"
+    var blue = UIColor(colorLiteralRed:0.00, green:0.40, blue:0.80, alpha: 1).cgColor
+    var green = UIColor(colorLiteralRed:0.20, green:0.75, blue:0.20, alpha: 1).cgColor
+    var red = UIColor(colorLiteralRed:0.80, green:0.00, blue:0.00, alpha: 1).cgColor
+      
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datasource = DustingTimeDatasource()
         self.collectionView?.backgroundColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
+
     }
-    
     
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

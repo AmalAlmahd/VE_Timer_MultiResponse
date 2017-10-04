@@ -28,6 +28,9 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="690" id="pX6-9S-EbO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -42,13 +45,11 @@
                                     <action selector="buttonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CYU-OY-Oaf"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dG3-3H-rYd">
-                                <rect key="frame" x="20" y="82" width="734" height="305"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRC-H9-bTt">
-                                <rect key="frame" x="778" y="488" width="82" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iST-O8-Ngj">
+                                <rect key="frame" x="772" y="425" width="139" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="mPA-Nj-lGD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,18 +57,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="51" id="AGo-b0-eER"/>
-                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="405" id="B0r-kw-m7L"/>
-                            <constraint firstItem="RRj-AN-XBM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-250" id="Nd8-3B-USE"/>
-                            <constraint firstItem="RRj-AN-XBM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="WxD-Ui-Vbr"/>
-                            <constraint firstItem="RRj-AN-XBM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="468" id="jKq-JR-hhD"/>
-                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qa4-1S-K7Q"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3k3-qC-hbd"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="top" secondItem="Oyy-32-RDJ" secondAttribute="bottom" constant="33" id="7nr-QC-7Lh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iST-O8-Ngj" secondAttribute="trailing" constant="93" id="HyX-vT-hbf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="51" id="JSQ-kf-o25"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="MKY-s1-56m"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iST-O8-Ngj" secondAttribute="bottom" constant="313" id="dsj-jZ-6hv"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="bottom" secondItem="iST-O8-Ngj" secondAttribute="bottom" id="fbR-sA-nJG"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="top" secondItem="iST-O8-Ngj" secondAttribute="top" id="odK-Kc-zoU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="TimeEnd" destination="iST-O8-Ngj" id="Mgh-KK-46W"/>
                         <outlet property="responseTxtView" destination="RRj-AN-XBM" id="Cu4-MU-imp"/>
                         <outlet property="startBtn" destination="Oyy-32-RDJ" id="nZ2-9a-72a"/>
-                        <outlet property="timeRecorded" destination="IRC-H9-bTt" id="0Ov-Oy-oDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
