@@ -17,9 +17,8 @@ public protocol DustingTimerCellDelegate: class {
     func handleDustingTimeButton()
 }
 
-class DustingTimerCell: DatasourceCell {
+class DustingTimerCell: DatasourceCell{
     
-    var work: String = ""
 
     
     public weak var delegate: DustingTimerCellDelegate?
@@ -179,6 +178,7 @@ class DustingTimerCell: DatasourceCell {
     }
     
     deinit {
+        print(dustingTimeLabel.text!)
         print("Farewell from Dusting Time Cell")
     }
 }

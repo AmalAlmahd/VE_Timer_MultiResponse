@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TImer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="TImer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,54 +22,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text View Test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RRj-AN-XBM">
-                                <rect key="frame" x="64" y="488" width="690" height="229"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Click &quot;Start Timer&quot; to begin the Emission Observation Timer." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RRj-AN-XBM">
+                                <rect key="frame" x="34" y="430" width="604" height="118"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="690" id="pX6-9S-EbO"/>
+                                    <constraint firstAttribute="width" constant="604" id="pX6-9S-EbO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyy-32-RDJ">
-                                <rect key="frame" x="20" y="425" width="78" height="30"/>
-                                <color key="backgroundColor" red="0.64206201424870468" green="0.64206201424870468" blue="0.64206201424870468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="34" y="586" width="120" height="35"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2ft-3y-vf0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Start Timer">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.64206201419999998" green="0.64206201419999998" blue="0.64206201419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CYU-OY-Oaf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iST-O8-Ngj">
-                                <rect key="frame" x="772" y="425" width="139" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of Observation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iST-O8-Ngj">
+                                <rect key="frame" x="764" y="444" width="199" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="139" id="mPA-Nj-lGD"/>
+                                    <constraint firstAttribute="width" constant="199" id="mPA-Nj-lGD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notified Environmental Department" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzU-cq-IRk" userLabel="CA Value Label">
+                                <rect key="frame" x="699" y="586" width="290" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Dusting Time Value is 00:00" translatesAutoresizingMaskIntoConstraints="NO" id="u5i-jx-bAp">
+                                <rect key="frame" x="175" y="581" width="463" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.64206201419999998" green="0.64206201419999998" blue="0.64206201419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3k3-qC-hbd"/>
-                            <constraint firstItem="RRj-AN-XBM" firstAttribute="top" secondItem="Oyy-32-RDJ" secondAttribute="bottom" constant="33" id="7nr-QC-7Lh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iST-O8-Ngj" secondAttribute="trailing" constant="93" id="HyX-vT-hbf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="51" id="JSQ-kf-o25"/>
-                            <constraint firstItem="RRj-AN-XBM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="MKY-s1-56m"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iST-O8-Ngj" secondAttribute="bottom" constant="313" id="dsj-jZ-6hv"/>
-                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="bottom" secondItem="iST-O8-Ngj" secondAttribute="bottom" id="fbR-sA-nJG"/>
-                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="top" secondItem="iST-O8-Ngj" secondAttribute="top" id="odK-Kc-zoU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iST-O8-Ngj" secondAttribute="trailing" constant="41" id="HyX-vT-hbf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="220" id="JSQ-kf-o25"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="38" id="Klw-aj-C39"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="MKY-s1-56m"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="top" secondItem="wzU-cq-IRk" secondAttribute="top" id="PkB-v5-6bm"/>
+                            <constraint firstItem="wzU-cq-IRk" firstAttribute="leading" secondItem="u5i-jx-bAp" secondAttribute="trailing" constant="61" id="Xsm-Ep-S4M"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="leading" secondItem="Oyy-32-RDJ" secondAttribute="leading" id="b1D-XF-Rz2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iST-O8-Ngj" secondAttribute="bottom" constant="303" id="dsj-jZ-6hv"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="410" id="hgk-fg-Lxt"/>
+                            <constraint firstItem="u5i-jx-bAp" firstAttribute="top" secondItem="RRj-AN-XBM" secondAttribute="bottom" constant="33" id="pOM-FU-i3D"/>
+                            <constraint firstItem="RRj-AN-XBM" firstAttribute="trailing" secondItem="u5i-jx-bAp" secondAttribute="trailing" id="yfV-jA-UzV"/>
+                            <constraint firstItem="Oyy-32-RDJ" firstAttribute="centerY" secondItem="u5i-jx-bAp" secondAttribute="centerY" id="zRV-2C-LSV"/>
+                            <constraint firstItem="u5i-jx-bAp" firstAttribute="leading" secondItem="Oyy-32-RDJ" secondAttribute="trailing" constant="21" id="zdF-N3-Fc6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="TimeEnd" destination="iST-O8-Ngj" id="Mgh-KK-46W"/>
-                        <outlet property="responseTxtView" destination="RRj-AN-XBM" id="Cu4-MU-imp"/>
+                        <outlet property="responseTxtView" destination="u5i-jx-bAp" id="Ajx-pw-knm"/>
                         <outlet property="startBtn" destination="Oyy-32-RDJ" id="nZ2-9a-72a"/>
                     </connections>
                 </viewController>

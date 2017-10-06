@@ -17,34 +17,31 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i",minutes, seconds)
     }
-    
 
     // update timer by decrementing initialTimer, terminate Timer when initialTimer=0
     func updateMainTimer(){
-    
         if let timeLabel = self.timeLabel{
             if initialTime == 0 {
                 timer.invalidate()
                 timerOn = false
                 timerUp = true
+                delegate.sendDate(date: getString())
+                delegate.sendDustingTime(dusting: timeString(time: TimeInterval(initialDustingTime)))
                 dismiss(animated: true, completion: nil)
-                date = Date().description
-            }
-            else {
+            } else {
                 initialTime -= 1
                 timeLabel.text = timeString(time: TimeInterval(initialTime))
-
             }
         }
     }
+  
     
-
+    // update timer by incrementing initialDustingTime, terminate Timer when initialTimer=0
     func updateDustingTimer(){
         if let dustingTimeLabel = self.dustingTimeLabel{
             if initialTime == 0 {
                 timerUp = true
                 dustTimer.invalidate()
-                date = Date().description
             
             } else {
                 initialDustingTime += 1
@@ -68,7 +65,6 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
     // on the click of "Start" runTimer
     func handleStartButton(){
         if timerOn == false && timerUp == false {
-            print(date)
             // There's only 1 subview for the collectionview, and it's of type DustingTimerCell
             let view = self.collectionView?.subviews[0] as! DustingTimerCell
             let label = view.timeLabel
@@ -85,11 +81,10 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
         }
     }
     
-    
     // on the click of "Reset" terminate timer and reset initialTime
     func handleResetButton(){
         // pause timer
-        if timerOn == true{
+        if timerOn == true {
             timer.invalidate()
             timerOn = false
             timerPaused = true
@@ -131,6 +126,7 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
     func handleDustingTimeButton(){
         if dustingTimerOn == false && timerOn == true && timerPaused == false {
             let view = self.collectionView?.subviews[0] as! DustingTimerCell
+            
             let label = view.dustingTimeLabel
             let btn = view.dustingTimeButton
             runDustingTimer()

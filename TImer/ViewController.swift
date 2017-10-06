@@ -9,27 +9,22 @@
 import UIKit
 import SwiftyPresenter
 
-public protocol TextMovingDelegate : class {
-    func updateTime()
-    func updateDustingTime()
-}
 
 class ViewController: UIViewController {
 
+    
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var responseTxtView: UITextView!
     
- 
+
     @IBOutlet weak var TimeEnd: UILabel!
     
-    public weak var delegate: TextMovingDelegate?
-    
-    var new = DustingTimeViewController()
 
     @IBAction func buttonHandler(_ sender: Any) {
         let controller = DustingTimeViewController()
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = transition
+        controller.delegate = self
         present(controller, animated: true, completion: nil)
         
     }
@@ -41,27 +36,26 @@ class ViewController: UIViewController {
         return swifty
     }()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        responseTxtView.text = Date().description
-        TimeEnd.text =  Date().description
-       
         // Do any additional setup after loading the view, typically from a nib.
         
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
- // MARK:- Action Handler
-    func updateTime(){
-        delegate?.updateTime()
-    }
-    func updateDustingTime(){
-        delegate?.updateDustingTime()
-    }
+    
 }
 
+extension ViewController: DataDelegate {
+    func sendDate(date: String) {
+        TimeEnd.text = date
+    }
+    func sendDustingTime(dusting: String) {
+        responseTxtView.text = "Accumulated Dusting Time: " + dusting
+    }
+    
+}
