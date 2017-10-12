@@ -8,9 +8,47 @@
 
 import UIKit
 
+
 extension DustingTimeViewController: DustingTimerCellDelegate {
     
-  
+    //format time and date 
+    
+    func getString() ->String {
+        let formatter = DateFormatter()
+        // initialize format
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myString = formatter.string(from: Date())
+        let yourDate = formatter.date (from: myString)
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        let myStringfd = formatter.string(from: yourDate!)
+        
+        return myStringfd
+    }
+
+    func createAlert (title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (ACTION) in
+            alert.dismiss(animated: true, completion: nil)
+            self.timerOn = false
+            self.timerPaused = false
+            self.timer.invalidate()
+            self.dustTimer.invalidate()
+            self.initialDustingTime = 0
+            self.initialTime = 360
+            self.timeLabel?.text = "06:00"
+            self.dustingTimeLabel?.text = "00:00"
+            self.resetBtn?.setTitle("Pause", for: .normal)
+            self.resetBtn?.layer.backgroundColor = self.blue
+            self.resetBtn?.layer.borderColor = self.self.blue
+      
+        }))
+        alert.addAction(UIAlertAction(title: "NO", style: .default, handler: { (ACTION) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     //take initialTime value and format it to minutes:seconds
     func timeString (time:TimeInterval)-> String{
         let minutes = Int(time)/60
@@ -50,7 +88,6 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             }
         }
     }
-    
     
     // updating timer every second
     func runTimer(){
@@ -97,28 +134,11 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             self.dustBtn?.layer.backgroundColor = green
             self.dustBtn?.layer.borderColor = green
             
-        // reset timer
+        // display alert, reset timer if confirmed
         } else {
-            timerOn = false
-            timerPaused = false
-            timer.invalidate()
-            dustTimer.invalidate()
-            initialDustingTime = 0
-            
-            if timerUp == false{
-                    initialTime = 360
-                    self.timeLabel?.text = "06:00"
-                    self.dustingTimeLabel?.text = "00:00"
-                    self.resetBtn?.setTitle("Pause", for: .normal)
-                    self.resetBtn?.layer.backgroundColor = blue
-                    self.resetBtn?.layer.borderColor = blue
-                    self.dustBtn?.setTitle("Start", for: .normal)
-                    self.dustBtn?.layer.backgroundColor = green
-                    self.dustBtn?.layer.borderColor = green
-            } else {
-                    initialTime = 0
+            if timerPaused == true {
+                createAlert(title: "Reset", message: "are you sure you want to reset your timer?")
             }
-
         }
     }
     
@@ -136,16 +156,12 @@ extension DustingTimeViewController: DustingTimerCellDelegate {
             self.dustBtn?.setTitle("Stop", for: .normal)
             self.dustBtn?.layer.backgroundColor = red
             self.dustBtn?.layer.borderColor = red
-            
         } else {
             dustTimer.invalidate()
             dustingTimerOn = false
             self.dustBtn?.setTitle("Start", for: .normal)
             self.dustBtn?.layer.backgroundColor = green
             self.dustBtn?.layer.borderColor = green
-    
         }
     }
-    
 }
-

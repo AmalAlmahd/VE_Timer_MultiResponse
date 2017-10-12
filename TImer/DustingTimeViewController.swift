@@ -16,6 +16,7 @@ protocol DataDelegate {
 
 class DustingTimeViewController: DatasourceController {
    
+    let window = UIApplication.shared.keyWindow
     // initiate variables for timeLabel, timeframe, timer, timer status
     var timeLabel: UILabel?
     var dustingTimeLabel : UILabel?
@@ -33,26 +34,9 @@ class DustingTimeViewController: DatasourceController {
     var green = UIColor(colorLiteralRed:0.20, green:0.75, blue:0.20, alpha: 1).cgColor
     var red = UIColor(colorLiteralRed:0.80, green:0.00, blue:0.00, alpha: 1).cgColor
     var delegate: DataDelegate!
+    var confirmed = false
     
-    
-    func getString() ->String {
-        let date = Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-        
-        
-        let year = components.year
-        let month = components.month
-        let day = components.day
-        let hour = components.hour
-        let minute = components.minute
-        let second = components.second
-        
-        let todayString = String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!) + ":" + String(minute!) + ":" + String(second!)
-        
-        return todayString
-    }
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

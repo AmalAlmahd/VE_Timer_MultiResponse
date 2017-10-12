@@ -14,17 +14,7 @@ struct DustingTimeModel {
 class DustingTimeDatasource: Datasource {
     
     let test: [Int] = [1,2]
-    
-//    let events: [Event] = {
-//        let tomEvent = Event(title: "Tom's First Event", creator: "Tom Fritz", username: "Atticus08", profileImage: #imageLiteral(resourceName: "firstEvent"), coverImage: #imageLiteral(resourceName: "firstEvent"), photoCount: 100, dateCreated: "7/2/2017")
-//        return [tomEvent]
-//    }()
-    
-    // MARK: - Datasource Functions
-    
-//    override func headerClasses() -> [DatasourceCell.Type]? {
-//        return HomeUserHeader.self
-//    }
+
     
     override func cellClasses() -> [DatasourceCell.Type] {
         return [DustingTimerCell.self]
@@ -32,7 +22,7 @@ class DustingTimeDatasource: Datasource {
     
     // This method runs the datasource items laid out in the cells
     override func item(_ indexPath: IndexPath) -> Any? {
-        return 1
+            return 1
     }
     
     override func numberOfSections() -> Int {
@@ -43,3 +33,4 @@ class DustingTimeDatasource: Datasource {
         return 1
     }
 }
+

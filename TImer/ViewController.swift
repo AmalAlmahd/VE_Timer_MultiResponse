@@ -13,13 +13,12 @@ import SwiftyPresenter
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var CALabel: UILabel!
+    @IBOutlet weak var correctiveAction: UILabel!
     @IBOutlet weak var startBtn: UIButton!
-    @IBOutlet weak var responseTxtView: UITextView!
-    
-
+    @IBOutlet weak var responseText: UITextView!
     @IBOutlet weak var TimeEnd: UILabel!
     
-
     @IBAction func buttonHandler(_ sender: Any) {
         let controller = DustingTimeViewController()
         controller.modalPresentationStyle = .custom
@@ -30,7 +29,7 @@ class ViewController: UIViewController {
     }
         lazy var transition: SwiftyPresenter = {
         var swifty = SwiftyPresenter()
-        swifty.transition(from: .left, useDimmer: true, dismissWithDimmer: false, withContainerSizeof: .containerSize(width: 0.7, height: 0.85), framePositionAt: .framePos(width: 0.9, height: 1.0))
+        swifty.transition(from: .left, useDimmer: true, dismissWithDimmer: false, withContainerSizeof: .containerSize(width: 0.7, height: 1), framePositionAt: .framePos(width: 0.9, height: 1.0))
             swifty.transition(withAnimationDurationOf: 0.7)
         
         return swifty
@@ -38,7 +37,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -55,7 +54,7 @@ extension ViewController: DataDelegate {
         TimeEnd.text = date
     }
     func sendDustingTime(dusting: String) {
-        responseTxtView.text = "Accumulated Dusting Time: " + dusting
+        responseText.text = "Accumulated Dusting Time: " + dusting + " minutes"
     }
     
 }

@@ -23,12 +23,6 @@ class DustingTimerCell: DatasourceCell{
     
     public weak var delegate: DustingTimerCellDelegate?
     
-    override var datasourceItem: Any? {
-        didSet {
-            
-        }
-    }
-    // Set up primary timer section title
     let primarySectionLabel: UILabel = {
         let label = UILabel()
         let text = NSMutableAttributedString(string: "")
@@ -47,21 +41,6 @@ class DustingTimerCell: DatasourceCell{
         label.textColor = .white
         return label
     }()
-    
-    
-//    // Set up Primary Timer
-//    let timeLabel: UILabel = {
-//        let label = UILabel()
-//        let text = NSMutableAttributedString(string: "")
-//        //        label.text = "06:00"
-//        text.append(NSAttributedString(string: "06:00", attributes: [NSFontAttributeName: UIFont(name: "MarkerFelt-Wide", size: 60)!, NSForegroundColorAttributeName: UIColor.white]))
-//        label.attributedText = text
-//        label.textAlignment = .center
-//        //        label.font = UIFont.systemFont(ofSize: 57)
-//        //        label.textColor = .black
-//        return label
-//    }()
-
     
     
     // Set up Dusting Timer section label
@@ -178,7 +157,6 @@ class DustingTimerCell: DatasourceCell{
     }
     
     deinit {
-        print(dustingTimeLabel.text!)
         print("Farewell from Dusting Time Cell")
     }
 }
